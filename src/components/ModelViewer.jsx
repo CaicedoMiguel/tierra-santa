@@ -3,13 +3,22 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, useGLTF, Sky } from '@react-three/drei';
 import * as THREE from 'three';
 
+/**
+ * Model component that loads, renders, and animates a 3D model.
+ *
+ * This component uses the `useGLTF` hook to load a GLTF model, applies custom 
+ * material properties, and supports user interaction for rotation. It also 
+ * animates the model's position and rotation.
+ *
+ * @component
+ */
 function Model() {
   const modelRef = useRef();
   const { scene } = useGLTF('/models/Low_Poly_Forest.glb');
   const [isDragging, setIsDragging] = useState(false);
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
 
-  // Cambiar material del modelo
+  // Modify material properties of the model
   scene.traverse((child) => {
     if (child.isMesh) {
       const originalMaterial = child.material.clone();
@@ -24,7 +33,7 @@ function Model() {
     }
   });
 
-  // Detectar el arrastre del mouse para rotar el modelo
+  // Handle mouse drag to rotate the model
   useEffect(() => {
     const handleMouseDown = () => setIsDragging(true);
     const handleMouseUp = () => setIsDragging(false);
@@ -48,19 +57,19 @@ function Model() {
     };
   }, [isDragging]);
 
-  // Actualiza la rotación y posición con animación de coseno en X e Y
+  // Animate the model's position and rotation
   let direction = 1;
   let positionX = 0;
 
   useFrame(({ clock }) => {
     if (positionX > 3 || positionX < -3) {
       direction *= -1;
-  }
+    }
     const t = clock.getElapsedTime();
     if (modelRef.current) {
       positionX += 0.01 * direction;
-      modelRef.current.position.x = positionX; // Animación de coseno en X
-      modelRef.current.position.y = Math.sin(t * 0.8) * 1.5; // Animación de seno en Y
+      modelRef.current.position.x = positionX; // Cosine animation on X-axis
+      modelRef.current.position.y = Math.sin(t * 0.8) * 1.5; // Sine animation on Y-axis
       modelRef.current.rotation.x = rotation.x;
       modelRef.current.rotation.y = rotation.y;
     }
@@ -69,6 +78,14 @@ function Model() {
   return <primitive ref={modelRef} object={scene} scale={2} position={[0, 0, 0]} />;
 }
 
+/**
+ * SkyBackground component that renders a sky background in the scene.
+ *
+ * This component uses the `Sky` component from `@react-three/drei` to create
+ * a sky with specified properties.
+ *
+ * @component
+ */
 function SkyBackground() {
   return (
     <Sky
@@ -80,6 +97,16 @@ function SkyBackground() {
   );
 }
 
+/**
+ * ModelViewer component that sets up the 3D scene with camera, lighting, 
+ * and background.
+ *
+ * This component uses the `Canvas` component from `@react-three/fiber` to 
+ * render the 3D scene. It includes ambient light, directional light, and 
+ * an environment preset.
+ *
+ * @component
+ */
 export default function ModelViewer() {
   return (
     <Canvas
@@ -97,4 +124,5 @@ export default function ModelViewer() {
   );
 }
 
+// Preload the GLTF model for improved performance
 useGLTF.preload('/models/Low_Poly_Forest.glb');
