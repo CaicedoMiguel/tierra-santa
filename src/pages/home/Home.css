@@ -1,62 +1,19 @@
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
     width: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+.main-content {
     padding: 20px;
-    background-color: #e3fcec;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .nav-links a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  .join-btn {
-    background-color: #66bb6a;
-    padding: 10px 20px;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-  }
-  
-  .main-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    margin: 50px 0;
-  }
-  
-  .text-section {
-    max-width: 50%;
-  }
-  
-  .get-involved-btn {
+    text-align: center;
+}
+
+.get-involved-btn {
+    margin-top: 20px;
     background-color: #4caf50;
     color: white;
-    padding: 15px 30px;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .image-section img {
-    max-width: 100%;
-    height: auto;
-  }
-  
+}

@@ -1,0 +1,49 @@
+/* Restablece los márgenes y paddings para asegurar que no haya espacio extra alrededor de los elementos de la página */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Asegura que el body y html ocupen todo el ancho */
+    overflow-x: hidden; /* Previene cualquier desbordamiento horizontal */
+  }
+  
+  .header {
+      width: 100%; /* Asegura que el header ocupe todo el ancho */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px; /* Controla el padding interior pero manteniéndolo dentro del 100% de ancho */
+      background-color: #f0f8f5; /* Ajusta este color para que coincida con tu diseño */
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .logo {
+      font-size: 24px;
+      color: #333;
+  }
+  
+  .navbar {
+      display: flex;
+  }
+  
+  .nav-link {
+      margin: 0 20px;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .nav-link:hover, .nav-link:focus {
+      background-color: #4caf50;
+      color: white;
+      border-radius: 5px;
+  }
+  
+  .join-btn {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border-radius: 5px;
+  }
+  
