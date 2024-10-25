@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Importa Link
 
 function Menu() {
   return (
@@ -14,11 +15,21 @@ function Menu() {
     }}>
       <h1 style={{ fontSize: '48px', marginBottom: '20px' }}>Menú</h1>
       <ul style={{ listStyle: 'none', padding: 0 }}>
-        <li style={{ marginBottom: '10px' }}>Sobre nosotros</li>
-        <li style={{ marginBottom: '10px' }}>Impacto ambiental</li>
-        <li style={{ marginBottom: '10px' }}>Participa</li>
-        <li style={{ marginBottom: '10px' }}>Contáctenos</li>
-        <li style={{ marginBottom: '10px' }}>Únete</li>
+        <li style={{ marginBottom: '10px' }}>
+          <Link to="/sobre-nosotros" style={{ color: 'white', textDecoration: 'none' }}>Sobre nosotros</Link>
+        </li>
+        <li style={{ marginBottom: '10px' }}>
+          <Link to="/impacto-ambiental" style={{ color: 'white', textDecoration: 'none' }}>Impacto ambiental</Link>
+        </li>
+        <li style={{ marginBottom: '10px' }}>
+          <Link to="/participa" style={{ color: 'white', textDecoration: 'none' }}>Participa</Link>
+        </li>
+        <li style={{ marginBottom: '10px' }}>
+          <Link to="/contactenos" style={{ color: 'white', textDecoration: 'none' }}>Contáctenos</Link>
+        </li>
+        <li style={{ marginBottom: '10px' }}>
+          <Link to="/unete" style={{ color: 'white', textDecoration: 'none' }}>Únete</Link>
+        </li>
       </ul>
     </div>
   );

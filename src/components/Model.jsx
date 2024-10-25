@@ -22,8 +22,8 @@ export const Model = React.forwardRef((props, ref) => {
     // Animación ajustada del mapache: movimiento más suave
     if (racoonRef.current) {
       const time = clock.getElapsedTime()
-      racoonRef.current.position.y = 1.56 + Math.sin(time * 2) * 0.05 // Movimiento vertical reducido
-      racoonRef.current.rotation.y += 0.01 // Rotación lenta en el eje Y
+      racoonRef.current.position.y = 1.56 + Math.sin(time * 0.000000000) * 0.05 // Movimiento vertical reducido
+      racoonRef.current.rotation.y += 0.0002 // Rotación lenta en el eje Y
     }
   })
 
@@ -58,7 +58,7 @@ export const Model = React.forwardRef((props, ref) => {
           material={materials['_Racoon_v1_L3:_Racoon_v2']}
           position={[-2.417, 1.56, -1.004]} // Ajuste la posición Y inicial
           rotation={[0, -1.26, 0]}
-          scale={0.05} // Aumentar la escala del mapache
+          scale={0.01} // Aumentar la escala del mapache
         />
         <mesh
           name="Line001"
